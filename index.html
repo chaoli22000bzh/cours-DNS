@@ -35,12 +35,30 @@ a:not(.link){color:#8dc1ff}
 .version-fixe{background:rgba(17,29,43,.94);color:#b9c8dc}
 }
 .dns-examples .dns-example+.dns-example{margin-top:18px}.dns-examples .dns-example-title{font-weight:normal}.dns-examples .dns-example p{margin:4px 0 0;line-height:1.5;overflow-wrap:anywhere}
+
+/* Bandeau DNS compact commun aux deux portails */
+header{padding:9px max(16px,calc((100% - 950px)/2))}
+.header-bar{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.header-bar h1{margin:0;line-height:1.2}
+.header-bar .toolbar{margin:0;gap:8px;flex-wrap:nowrap}
+.header-bar .toolbar button{padding:9px 13px;white-space:nowrap}
+.header-bar .home-link{display:inline-flex;align-items:center;justify-content:center;flex:0 0 43px;width:43px;height:43px;padding:6px}
+.header-bar .home-link svg{display:block}
+main{margin-top:12px}
+.presentation header{padding:8px 18px}
+.presentation .header-bar .toolbar{margin:0}
+@media(max-width:480px){
+header{padding:9px 12px}
+.header-bar h1{font-size:26px}
+.header-bar .toolbar{flex:0 0 auto}
+.header-bar .toolbar button{width:auto;flex:0 0 auto;font-size:13px;padding:10px 8px}
+.header-bar .home-link{width:39px;height:39px;flex-basis:39px;padding:6px}
+}
 </style>
 </head>
 <body>
-<header><h1>DNS</h1></header>
+<header><div class="header-bar"><h1>DNS</h1><nav class="toolbar" aria-label="Navigation du cours"><button type="button" id="mode" aria-pressed="false">Mode présentation</button><a class="link secondary home-link" href="/" title="Retour au portail" aria-label="Retour au portail"><svg viewBox="0 0 24 24" width="22" height="22" focusable="false" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-8h6v8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav></div></header>
 <main>
-<div class="toolbar"><button type="button" id="mode" aria-pressed="false">Mode présentation</button><a class="link secondary" href="/">Retour au portail</a></div>
 <details id="cours"><summary>1. À quoi sert le DNS ?</summary><div class="inside">
 <p>Le DNS (Domain Name System) permet à un ordinateur de trouver l'adresse IP associée à un nom.</p>
 <p>Grâce au DNS, nous utilisons des noms faciles à retenir plutôt que des adresses IP.</p>
@@ -99,4 +117,4 @@ const cell=document.createElement("td"),btn=document.createElement("button");btn
 function dnsLookup(name,seen=[]){if(seen.includes(name))return null;if(name==="athenyx.net")return dnsZone.site;if(name==="mail.athenyx.net")return dnsZone.mail;if(name==="www.athenyx.net")return dnsLookup(dnsZone.www,[...seen,name]);return null}
 function dnsTest(k){if(!dnsResult.hidden&&dnsActiveTest===k){dnsResult.hidden=true;dnsActiveTest=null;return}dnsActiveTest=k;const name=k==="www"?"www.athenyx.net":k==="mail"?"mail.athenyx.net":"athenyx.net",type=dnsTypes[k];let lines=["C:\\> nslookup -type="+type+" "+name,""];if(k==="www"){lines.push(name+".  CNAME  "+dnsZone.www+".");}else if(k==="mx"){lines.push(name+".  MX  "+dnsZone.mx+".");}else{const ip=dnsLookup(name);lines.push(ip?name+".  A  "+ip:"*** Aucun enregistrement A trouvé");}dnsOutput.textContent=lines.join("\n");dnsResult.hidden=false;dnsStatus.textContent=""}
 dnsRender();
-</script><div class="version-fixe" aria-label="Version du cours">V0.3.11</div></body></html>
+</script><div class="version-fixe" aria-label="Version du cours">V0.3.12</div></body></html>
