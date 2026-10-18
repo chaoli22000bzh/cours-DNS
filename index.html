@@ -266,7 +266,7 @@ window.addEventListener('pageshow',()=>{quiz4.reset();feedback4.hidden=true;feed
 quiz4.addEventListener('change',()=>{feedback4.hidden=true;feedback4.textContent='';});
 quiz4.addEventListener('submit',e=>{e.preventDefault();const data=new FormData(quiz4),answers=dns4Expected.map((_,i)=>data.get('q'+(i+1)));feedback4.hidden=false;
 if(answers.some(v=>!v)){feedback4.textContent='Choisis une réponse pour les sept situations.';return;}
-const score=answers.filter((v,i)=>v===dns4Expected[i]).length;feedback4.textContent=score===8?'Bravo ! 7 bonnes réponses sur 7.':score+' bonnes réponses sur 7. Vérifie tes choix et essaie encore.';});
+const score=answers.filter((v,i)=>v===dns4Expected[i]).length;feedback4.textContent=score===7?'Bravo ! 7 bonnes réponses sur 7.':score+' bonnes réponses sur 7. Vérifie tes choix et essaie encore.';});
 const chapters=[...document.querySelectorAll('main > details')];
 chapters.forEach(chapter=>chapter.addEventListener('toggle',()=>{
  if(!chapter.open)return;
