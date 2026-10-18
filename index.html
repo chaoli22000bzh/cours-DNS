@@ -164,7 +164,7 @@ form.addEventListener('change',()=>{feedback.hidden=true;feedback.textContent=''
 const form2=document.getElementById('quiz-2'),feedback2=document.getElementById('feedback-2');
 form2.reset();
 window.addEventListener('pageshow',()=>{form2.reset();feedback2.hidden=true;feedback2.textContent='';});
-form2.addEventListener('submit',e=>{e.preventDefault();const value=new FormData(form2).get('reponse-2');feedback2.hidden=false;feedback2.textContent=!value?'Choisis une réponse.':value==='b'?'Bonne réponse. L’ordinateur contacte directement le serveur web avec l’adresse IP obtenue.':'Ce n’est pas la bonne réponse. Le DNS indique l’adresse IP ; il ne transmet pas la page web.';});
+form2.addEventListener('submit',e=>{e.preventDefault();const value=new FormData(form2).get('reponse-2');feedback2.hidden=false;feedback2.textContent=!value?'Choisis une réponse.':value==='b'?'Bonne réponse. L’ordinateur contacte directement le serveur web avec l’adresse IP obtenue.':({a:'Ce n’est pas la bonne réponse. Le serveur DNS ne télécharge pas les pages web.',c:'Ce n’est pas la bonne réponse. L’ordinateur n’envoie pas de page web au serveur DNS.',d:'Ce n’est pas la bonne réponse. Le serveur DNS ne transmet pas les pages web.'}[value]||'Ce n’est pas la bonne réponse. Essaie encore.');});
 form2.addEventListener('change',()=>{feedback2.hidden=true;feedback2.textContent='';});
 const chapters=[...document.querySelectorAll('main > details')];
 chapters.forEach(chapter=>chapter.addEventListener('toggle',()=>{
@@ -230,4 +230,4 @@ frame=requestAnimationFrame(back);
 }
 button.addEventListener('click',start);
 })();
-</script><div class="version-fixe" aria-label="Version du cours">V0.3.21</div></body></html>
+</script><div class="version-fixe" aria-label="Version du cours">V0.3.22</div></body></html>
