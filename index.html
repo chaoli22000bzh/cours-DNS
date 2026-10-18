@@ -82,7 +82,7 @@ header{padding:9px 12px}
 .dns-scene .dns-wire.dns-query{stroke:#1d72d1}.dns-scene .dns-wire.dns-answer{stroke:#0d9771}.dns-scene .dns-wire.dns-web{stroke:#d27a22}
 .dns-scene .dns-packet{opacity:0}.dns-scene .dns-packet.on{opacity:1}
 .dns-scene .dns-packet circle{fill:#ffb12c;stroke:#fff;stroke-width:2}
-.dns-scene .dns-bubble{position:absolute;left:11%;top:3%;width:78%;min-height:50px;padding:7px 10px;background:#fff;border:2px solid #3d76b0;border-radius:10px;text-align:center;font-size:clamp(12px,2.3vw,17px);line-height:1.35;box-shadow:0 3px 10px #0002}
+.dns-scene .dns-bubble{position:absolute;left:8%;top:1%;width:84%;min-height:50px;padding:7px 10px;background:#fff;border:2px solid #3d76b0;border-radius:10px;text-align:center;font-size:clamp(12px,2.3vw,17px);line-height:1.35;box-shadow:0 3px 10px #0002}
 .dns-scene .dns-bubble[hidden]{display:none}
 .dns-scene .dns-bubble strong{display:block;font-size:.82em;color:#195a9c}
 .dns-scene .dns-bubble.answer{border-color:#0d9771}.dns-scene .dns-bubble.answer strong{color:#0d7c5f}
@@ -115,14 +115,14 @@ header{padding:9px 12px}
 <p>Ton ordinateur peut alors contacter le serveur web pour récupérer la page demandée.</p>
 <div class="dns-parcours" aria-label="Animation des échanges entre ordinateur, DNS et serveur web">
 <div class="dns-scene">
-<svg viewBox="0 0 360 280" role="img" aria-label="Triangle : ordinateur à gauche, serveur DNS en haut à droite, serveur web en bas à droite. Les flèches montrent leurs échanges.">
-<path class="dns-wire dns-query" id="dns-trajet-query" d="M99 129 L250 79"/>
+<svg viewBox="0 0 360 345" role="img" aria-label="Triangle : ordinateur à gauche, serveur DNS en haut à droite, serveur web en bas à droite. Les flèches montrent leurs échanges.">
+<g transform="translate(0 65)"><path class="dns-wire dns-query" id="dns-trajet-query" d="M99 129 L250 79"/>
 <path class="dns-wire dns-answer" id="dns-trajet-answer" d="M250 79 L99 129"/>
 <path class="dns-wire dns-web" id="dns-trajet-web" d="M99 160 L250 217"/>
 <g class="dns-node active" id="dns-anim-pc"><rect x="13" y="110" width="86" height="75" rx="9"/><text x="56" y="138" font-size="22">💻</text><text x="56" y="159" font-size="13">Ordinateur</text></g>
 <g class="dns-node active" id="dns-anim-dns"><rect x="250" y="43" width="97" height="73" rx="9"/><text x="298" y="68" font-size="21">🗄️</text><text x="298" y="88" font-size="13">Serveur DNS</text></g>
 <g class="dns-node dim" id="dns-anim-web"><rect x="250" y="180" width="97" height="76" rx="9"/><text x="298" y="207" font-size="22">🌐</text><text x="298" y="229" font-size="13">Serveur web</text><text x="298" y="245" font-size="10">192.0.2.10</text></g>
-<g class="dns-packet" id="dns-anim-packet"><circle r="8" cx="0" cy="0"/></g>
+<g class="dns-packet" id="dns-anim-packet"><circle r="8" cx="0" cy="0"/></g></g>
 </svg>
 <div class="dns-bubble" id="dns-anim-bubble" hidden aria-live="polite"><strong id="dns-anim-label"></strong><span id="dns-anim-message"></span></div>
 </div>
